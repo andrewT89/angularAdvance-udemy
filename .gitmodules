@@ -1,0 +1,3 @@
+[submodule "adminpro-udemy"]
+	path = adminpro-udemy
+	url = https://github.com/andrewT89/adminpro-udemy.git
