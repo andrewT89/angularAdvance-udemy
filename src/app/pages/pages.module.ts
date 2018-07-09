@@ -9,12 +9,16 @@ import {Graficas1Component} from './graficas1/graficas1.component';
 import {PAGES_ROUTES} from './pages.routes';
 import {FormsModule} from '@angular/forms';
 
+// temporal
+import {IncrementComponent} from '../components/increment/increment.component';
+
 @NgModule({
   declarations: [
     DashboardComponent,
     ProgressComponent,
     Graficas1Component,
     PagesComponent,
+    IncrementComponent
   ],
   exports: [
     DashboardComponent,

@@ -1,3 +1,13 @@
-<p>
-  increment works!
-</p>
+
+<h3>{{leyend}}</h3>
+<!--input group-->
+<div class="input-group">
+          <span class="input-group-btn">
+            <button class="btn btn-outline-primary" (click)="changeValue(5)" type="button"><i class="mdi mdi-plus"></i></button>
+          </span>
+  <input #txtPercentage type="number" class="form-control" min="1" max="100" name="percentage" [(ngModel)]="percentage" (ngModelChange)="onChange($event)">
+  <span class="input-group-btn">
+            <button class="btn btn-outline-primary" (click)="changeValue(-5)" type="button"><i class="mdi mdi-minus"></i></button>
+          </span>
+</div>
+<!--end input group-->
