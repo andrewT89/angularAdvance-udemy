@@ -12,13 +12,18 @@ import {FormsModule} from '@angular/forms';
 // temporal
 import {IncrementComponent} from '../components/increment/increment.component';
 
+// ng2- charts
+import { ChartsModule } from 'ng2-charts';
+import {GraficoDonaComponent} from '../components/grafico-dona/grafico-dona.component';
+
 @NgModule({
   declarations: [
     DashboardComponent,
     ProgressComponent,
     Graficas1Component,
     PagesComponent,
-    IncrementComponent
+    IncrementComponent,
+    GraficoDonaComponent
   ],
   exports: [
     DashboardComponent,
@@ -29,7 +34,8 @@ import {IncrementComponent} from '../components/increment/increment.component';
   imports: [
     ShareModule,
     PAGES_ROUTES,
-    FormsModule
+    FormsModule,
+    ChartsModule
   ]
 })
 export class PagesModule {}
