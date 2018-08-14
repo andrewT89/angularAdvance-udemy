@@ -48,6 +48,7 @@ export class RegisterComponent implements OnInit {
       email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, Validators.required),
       password2: new FormControl(null, Validators.required),
+      google: new FormControl(null, Validators.required),
       conditions: new FormControl(false),
     }, {validators: this.isEquals('password' , 'password2')});
 
@@ -56,6 +57,7 @@ export class RegisterComponent implements OnInit {
       email: 'andres@andres.com',
       password: '123',
       password2: '123',
+      google: false,
       conditions: true
     });
   }
@@ -74,7 +76,8 @@ export class RegisterComponent implements OnInit {
     const usuario = new User (
       this.form.value.nombre,
       this.form.value.email,
-      this.form.value.password
+      this.form.value.password,
+      this.form.value.google
     );
 
     this._usuarioService.createUser(usuario)

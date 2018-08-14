@@ -1,0 +1,54 @@
+<div class="row animated fadeIn">
+  <div class="col-lg-7">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title"> Perfil del Usuario </h4>
+        <h6 class="card-subtitle"> Datos personales </h6>
+
+        <form ngNativeValidate #f="ngForm" (ngSubmit)="saveUser(f.value)"  class="form p-t-20">
+          <div class="form-group">
+            <label> Nombre de Usuario </label>
+            <div class="input-group">
+              <div class="input-group-addon"><i class="ti-user"></i></div>
+              <input [ngModel]="usuario.nombre" name="nombre" type="text" class="form-control" placeholder="Digite su nombre de usuario" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label> Correo del Usuario </label>
+            <div class="input-group">
+              <div class="input-group-addon"><i class="ti-email"></i></div>
+              <input [ngModel]="usuario.email" [disabled]="usuario.google" name="email" type="email" class="form-control" placeholder="Digite su correo" required>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">
+            <i class="fa fa-save"></i>
+            Guardar
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-5">
+    <div class="card">
+      <div class="card-body" align="center">
+        <h4 class="card-title"> Fotografia del Usuario </h4>
+        <h6 class="card-subtitle"> Imagen </h6>
+
+        <img *ngIf="!imgTemp" [src]="usuario.img | image" class="w150">
+        <img *ngIf="imgTemp" [src]="imgTemp" class="w150">
+
+        <input type="file" (change)="selectedImage($event.target.files[0])">
+
+        <br/><br/>
+
+        <button (click)="changeImage()" [disabled]="!imageUpload" type="button" class="btn btn-block btn-success waves-effect waves-light m-r-10">
+          <i class="fa fa-update"></i>
+          Actualizar imagen
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+

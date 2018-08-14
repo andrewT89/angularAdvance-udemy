@@ -5,6 +5,7 @@ import {URL_SERVICES} from './../../config/config';
 
 import 'rxjs/add/operator/map';
 import {Router} from '@angular/router';
+import {UploadFileService} from '../uploadFile/upload-file.service';
 
 @Injectable()
 export class UsuarioService {
@@ -13,9 +14,7 @@ export class UsuarioService {
   token: string;
   id: string;
 
-  constructor(
-    public _router: Router,
-    public http: HttpClient) {
+  constructor(public _router: Router, public _uploadFile: UploadFileService, public http: HttpClient) {
     this.loadStorage();
   }
 
@@ -53,11 +52,8 @@ export class UsuarioService {
   loginWithGoogle(token: string) {
     const url = `${URL_SERVICES}/login/google`;
     return this.http.post(url, {token})
-      .map(() => {
-        this.id = localStorage.getItem('id');
-        this.token = localStorage.getItem('token');
-        this.usuario = JSON.parse(localStorage.getItem('usuario'));
-        this.saveStorage(this.id, this.token, this.usuario);
+      .map((res: any) => {
+        this.saveStorage(res.id, res.token, res.usuario);
         return true;
       });
   }
@@ -90,6 +86,30 @@ export class UsuarioService {
         swal('Usuario creado', user.email, 'success');
         return res.usuario;
       });
+  }
+
+  updateUser(user: User) {
+    let url = `${URL_SERVICES}/usuario/${user._id}`;
+    url += `?token=${this.token}`;
+    return this.http.put(url, user)
+      .map((res: any) => {
+        this.saveStorage(res.id, res.token, res.usuario);
+        swal('Usuario actualizado correctamente', user.nombre, 'success');
+        return res.usuario;
+      });
+  }
+
+  changeImage(file: File, id: string) {
+    this._uploadFile.uploadFile(file, 'usuarios', id)
+      .then((res: any) => {
+
+        this.usuario.img = res.usuario.img;
+        this.saveStorage(id, this.token, this.usuario);
+        swal(res.message, this.usuario.nombre, 'success');
+
+      }).catch(res => {
+      console.log(res);
+    });
   }
 
 }

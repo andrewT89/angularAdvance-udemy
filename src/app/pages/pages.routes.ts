@@ -8,6 +8,7 @@ import {Graficas1Component} from './graficas1/graficas1.component';
 import {PagesComponent} from './pages.component';
 import {AccountSettingsComponent} from './account-settings/account-settings.component';
 import {LoginGuardGuard} from '../services/service.index';
+import {ProfileComponent} from './profile/profile.component';
 
 const pagesRoutes: Routes = [
   {
@@ -20,6 +21,7 @@ const pagesRoutes: Routes = [
       {path: 'graficas1', component: Graficas1Component , data: { tittle: 'Graficas' }},
       {path: 'promise', component: PromiseComponent , data: { tittle: 'Promesas' }},
       {path: 'rxjs', component: RxjsComponent , data: { tittle: 'RxJs' }},
+      {path: 'profile', component: ProfileComponent, data: { tittle: 'Perfil' }},
       {path: 'account-settings', component: AccountSettingsComponent , data: { tittle: 'Ajustes' }},
       {path: '', redirectTo: '/dashboard', pathMatch: 'full' },
     ]

@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
       const token = googleUser.getAuthResponse().id_token;
       console.log(token);
       this._userService.loginWithGoogle(token)
-        .subscribe(res => this._router.navigate(['/dashboard']));
+        .subscribe(res => window.location.href = '#/dashboard');
     });
   }
 
@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    const usuario = new User(null, form.value.email, form.value.password);
+    const usuario = new User(form.value.nombre, form.value.email, form.value.password);
     this._userService.login(usuario, form.value.remember)
       .subscribe(res => this._router.navigate(['/dashboard']));
   }
