@@ -93,9 +93,14 @@ export class UsuarioService {
     url += `?token=${this.token}`;
     return this.http.put(url, user)
       .map((res: any) => {
-        this.saveStorage(res.id, res.token, res.usuario);
+
+        if (user._id === this.usuario._id) {
+          const userDB: User = res.usuario;
+          this.saveStorage(userDB._id, this.token, userDB);
+        }
+
         swal('Usuario actualizado correctamente', user.nombre, 'success');
-        return res.usuario;
+        return true;
       });
   }
 
@@ -112,4 +117,25 @@ export class UsuarioService {
     });
   }
 
+  loadUsers(ofSet: number = 0) {
+    // usuario?ofSet=0
+    const url = `${URL_SERVICES}/usuario?ofSet=${ofSet}`;
+    return this.http.get(url);
+  }
+
+  searchUsers(term: string) {
+    // /search/coleccion/medicos/
+    const url = `${URL_SERVICES}/search/coleccion/usuarios/${term}`;
+    return this.http.get(url)
+      .map((res: any) => res.usuarios);
+
+  }
+
+  deleteUserById(id: string) {
+    const url = `${URL_SERVICES}/usuario/${id}?token=${this.token}`;
+    return this.http.delete(url)
+      .map(res => {
+        return true;
+      });
+  }
 }

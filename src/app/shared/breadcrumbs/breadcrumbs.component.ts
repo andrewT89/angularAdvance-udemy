@@ -17,7 +17,6 @@ export class BreadcrumbsComponent implements OnInit {
 
     // Asignar el titulo al breadcrumbs.component
     this.getDataRoute().subscribe( data => {
-      console.log(data);
       this.titulo = data.tittle;
       this.title.setTitle( this.titulo );
 

@@ -23,6 +23,8 @@ import { ProfileComponent } from './profile/profile.component';
 // Pipe module
 import {PipesModule} from '../pipes/pipes.module';
 import {CommonModule} from '@angular/common';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import {ModalUploadComponent} from '../components/modal-upload/modal-upload.component';
 
 @NgModule({
   declarations: [
@@ -35,13 +37,16 @@ import {CommonModule} from '@angular/common';
     AccountSettingsComponent,
     PromiseComponent,
     RxjsComponent,
-    ProfileComponent
+    ProfileComponent,
+    UsuariosComponent,
+    ModalUploadComponent
   ],
   exports: [
     DashboardComponent,
     ProgressComponent,
     Graficas1Component,
     PagesComponent,
+    UsuariosComponent
   ],
   imports: [
     CommonModule,
