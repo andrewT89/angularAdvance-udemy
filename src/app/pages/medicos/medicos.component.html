@@ -1,0 +1,67 @@
+<div class="row animated fadeIn">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+
+        <input #input (keyup)="searchByMedico(input.value)" type="text" class="form-control" placeholder="Buscar Medicos...">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+
+        <div class="text-right">
+          <button [routerLink]="['/medico', 'nuevo']" type="button" class="btn waves-effect waves-light btn-rounded btn-primary">
+            <i class="fa fa-plus"></i>
+            Crear Medico
+          </button>
+        </div>
+
+        <h3 class="card-title"> Medicos Registrados (<small> {{ totalRegisters }} </small>)</h3>
+
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th> Foto </th>
+            <th> Médico </th>
+            <th> Hospital </th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let medico of medicos">
+            <td>
+              <img [src]="medico.img | image: 'medico'" class="img-50 pointer">
+            </td>
+            <td> {{ medico.nombre }} </td>
+            <td> {{ (medico.hospital) ? medico.hospital.nombre : 'No hay datos para mostrar'  }} </td>
+            <td>
+              <button [routerLink]="['/medico', medico._id]" class="btn btn-primary">
+                <i class="fa fa-edit"></i>
+              </button>
+
+              <button (click)="deleteByMedico(medico)" class="btn btn-danger">
+                <i class="fa fa-trash-o"></i>
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+        <button (click)="changeOfSet(-5)" class="btn btn-secondary">
+          Anterior
+        </button>
+
+        <button (click)="changeOfSet(5)" class="btn btn-secondary">
+          Siguiente
+        </button>
+
+      </div>
+    </div>
+  </div>
+</div>
