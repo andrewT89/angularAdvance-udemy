@@ -1,4 +1,7 @@
+/** GUARDS **/
+export {AdminGuard} from './guards/admin.guard';
 export { LoginGuardGuard } from './guards/login-guard.guard';
+
 export {UploadFileService} from './uploadFile/upload-file.service';
 export { SettingsService } from './settings/settings.service';
 export { SharedService } from './shared/shared.service';
