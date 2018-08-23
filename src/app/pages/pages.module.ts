@@ -24,7 +24,6 @@ import { ProfileComponent } from './profile/profile.component';
 import {PipesModule} from '../pipes/pipes.module';
 import {CommonModule} from '@angular/common';
 import { UsuariosComponent } from './usuarios/usuarios.component';
-import {ModalUploadComponent} from '../components/modal-upload/modal-upload.component';
 import { HospitalesComponent } from './hospitales/hospitales.component';
 import { MedicosComponent } from './medicos/medicos.component';
 import { MedicoComponent } from './medicos/medico.component';
@@ -35,7 +34,6 @@ import { SearchComponent } from './search/search.component';
     DashboardComponent,
     ProgressComponent,
     Graficas1Component,
-    PagesComponent,
     IncrementComponent,
     GraficoDonaComponent,
     AccountSettingsComponent,
@@ -43,7 +41,6 @@ import { SearchComponent } from './search/search.component';
     RxjsComponent,
     ProfileComponent,
     UsuariosComponent,
-    ModalUploadComponent,
     HospitalesComponent,
     MedicosComponent,
     MedicoComponent,
@@ -53,7 +50,6 @@ import { SearchComponent } from './search/search.component';
     DashboardComponent,
     ProgressComponent,
     Graficas1Component,
-    PagesComponent,
     UsuariosComponent,
     HospitalesComponent,
     MedicosComponent,

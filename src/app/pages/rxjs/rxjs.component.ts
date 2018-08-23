@@ -1,7 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-// tslint:disable-next-line:import-blacklist
-import { Observable, Subscriber, Subscription } from 'rxjs/Rx';
-import { retry, map, filter } from 'rxjs/operators';
+import { Subscriber } from 'rxjs/Subscriber';
+import {Observable} from 'rxjs/Observable';
+import {Subscription} from 'rxjs/Subscription';
+import { map, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-rxjs',
